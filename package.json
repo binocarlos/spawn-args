@@ -1,6 +1,6 @@
 {
   "name": "spawn-args",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Turn a string of command line options into an array for child_process.spawn",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "url": "https://github.com/binocarlos/spawn-args/issues"
   },
   "homepage": "https://github.com/binocarlos/spawn-args",
-   "devDependencies": {
+  "devDependencies": {
     "mocha": "~1.12.0",
     "should": "~1.2.2"
   }
