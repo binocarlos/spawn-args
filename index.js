@@ -4,10 +4,12 @@ module.exports = function(args){
 
 	var current = null;
 	var quoted = null;
+	var quoteType = null;
 
 	function addcurrent(){
 		if(current){
-			arr.push(current);
+			// trim extra whitespace on the current arg
+			arr.push(current.trim());
 			current = null;
 		}
 	}
@@ -23,15 +25,23 @@ module.exports = function(args){
 				addcurrent();
 			}
 		}
-		else if(c=="\""){
+		else if(c == '\'' || c == '"'){
 			if(quoted){
 				quoted += c;
-				arr.push(quoted);
-				quoted = null;
+				// only end this arg if the end quote is the same type as start quote
+				if (quoteType === c) {
+					// make sure the quote is not escaped
+					if (quoted.charAt(quoted.length - 2) !== '\\') {
+						arr.push(quoted);
+						quoted = null;
+						quoteType = null;
+					}
+				}
 			}
 			else{
 				addcurrent();
 				quoted = c;
+				quoteType = c;
 			}
 		}
 		else{
