@@ -26,4 +26,10 @@ describe('spawn-args', function(){
     arr.length.should.equal(2);
     arr[1].should.equal('"{\\"url\\": \\"http://example.com\\"}"');
   })
+
+  it('should parse escaped newlines properly', function() {
+    var arr = parse('--host hello.com \\\n --port 80')
+
+    arr.length.should.equal(4);
+  })
 })

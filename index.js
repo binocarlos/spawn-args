@@ -14,6 +14,9 @@ module.exports = function(args){
 		}
 	}
 
+	// remove escaped newlines
+	args = args.replace(/\\\n/g, '');
+
 	for(var i=0; i<args.length; i++){
 		var c = args.charAt(i);
 
