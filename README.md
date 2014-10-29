@@ -1,7 +1,7 @@
 spawn-args
 ==========
 
-![Build status](https://api.travis-ci.org/binocarlos/yoda.png)
+![Build status](https://api.travis-ci.org/binocarlos/spawn-args.png)
 
 Turn a string of command line options into an array for child_process.spawn
 
