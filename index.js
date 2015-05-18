@@ -1,4 +1,5 @@
-module.exports = function(args){
+module.exports = function(args, opts){
+	opts = opts || {}
 	args = args || '';
 	var arr = [];
 
@@ -63,6 +64,13 @@ module.exports = function(args){
 	}
 
 	addcurrent();
+
+	if(opts.removequotes){
+		arr = arr.map(function(arg){
+			if(arg.match(/\s/)) return arg
+			return arg.replace(/^"|"$/g, "");
+		});
+	}
 
 	return arr;
 }
