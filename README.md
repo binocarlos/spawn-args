@@ -15,6 +15,7 @@ $ npm install spawn-args
 
 ```js
 var spawnargs = require('spawn-args');
+//spawnargs(argString:string[, options:object]);
 
 var args = spawnargs('-port 80 --title "this is a title"');
 
@@ -25,6 +26,19 @@ var args = spawnargs('-port 80 --title "this is a title"');
 		'80',
 		'--title',
 		'"this is a title"'
+	]
+	
+*/
+
+var args2 = spawnargs('-port 80 --title "this is a title"', { removequotes: true });
+
+/*
+
+	[
+		'-port',
+		'80',
+		'--title',
+		'this is a title'
 	]
 	
 */
