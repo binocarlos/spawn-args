@@ -67,8 +67,13 @@ module.exports = function(args, opts){
 
 	if(opts.removequotes){
 		arr = arr.map(function(arg){
-			if(arg.match(/\s/)) return arg
-			return arg.replace(/^"|"$/g, "");
+			if(opts.removequotes==='always'){
+				return arg.replace(/^["']|["']$/g, "");
+			}
+			else{
+				if(arg.match(/\s/)) return arg
+				return arg.replace(/^"|"$/g, "");
+			}
 		});
 	}
 
