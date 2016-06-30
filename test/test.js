@@ -45,4 +45,17 @@ describe('spawn-args', function(){
     removequotes[3].should.equal('"apples oranges"')
 
   })
+
+  it('should ALWAYS remove quotes if passed a config', function() {
+    var string = '--host "hello.com" --fruit "apples oranges"'
+    var keepquotes = parse(string)
+    var removequotes = parse(string, {
+      removequotes:'always'
+    })
+    keepquotes[1].should.equal('"hello.com"')
+    keepquotes[3].should.equal('"apples oranges"')
+    removequotes[1].should.equal('hello.com')
+    removequotes[3].should.equal('apples oranges')
+
+  })
 })

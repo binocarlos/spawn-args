@@ -29,8 +29,29 @@ var args = spawnargs('-port 80 --title "this is a title"');
 	]
 	
 */
+```
 
-var args2 = spawnargs('-port 80 --title "this is a title"', { removequotes: true });
+The `removequotes` option will remove quotes from values if they do not have spaces
+
+```js
+var args2 = spawnargs('-port 80 --color "red" --title "this is a title"', { removequotes: true });
+
+/*
+
+	[
+		'-port',
+		'80',
+		'--title',
+		'"this is a title"'
+	]
+	
+*/
+```
+
+If `removequotes` is `always` then quotes will be removed even if the value contains spaces
+
+```js
+var args3 = spawnargs('-port 80 --color "red" --title "this is a title"', { removequotes: 'always' });
 
 /*
 
