@@ -41,6 +41,8 @@ var args2 = spawnargs('-port 80 --color "red" --title "this is a title"', { remo
 	[
 		'-port',
 		'80',
+		'--color',
+		'red',
 		'--title',
 		'"this is a title"'
 	]
@@ -58,6 +60,8 @@ var args3 = spawnargs('-port 80 --color "red" --title "this is a title"', { remo
 	[
 		'-port',
 		'80',
+                '--color',
+                'red',
 		'--title',
 		'this is a title'
 	]
